@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillSwap</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        SkillSwap
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+
+        <a href="#explore">
+            Explore Skills
+        </a>
+
+        <a href="#how-it-works">
+            How It Works
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1 class="hero-title">
+            Swap Skills,<br>
+            <span>Unlock Potential.</span>
+        </h1>
+
+        <h2 class="hero-subtitle">
+            Learning beyond classrooms.
+        </h2>
+
+        <p class="hero-text">
+            A peer-to-peer skill exchange and learning platform
+            where students can exchange skills, learn from each
+            other, and grow together using a SkillPoint based system.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button class="primary-btn">
+                Explore Skills
+            </button>
+
+            <button class="secondary-btn">
+                Join SkillSwap
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="how-it-works" id="how-it-works">
+
+    <div class="section-heading">
+
+        <h2>
+            How SkillSwap Works
+        </h2>
+
+        <span>
+            Learn from students. Share what you know.
+        </span>
+
+    </div>
+
+
+    <div class="steps">
+
+        <div class="step">
+
+            <h3>
+                1. Find a Skill
+            </h3>
+
+            <p>
+                Explore skills that you want to learn
+                from other students.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>
+                2. Request to Learn
+            </h3>
+
+            <p>
+                Send a learning request to a student
+                who can teach that skill.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>
+                3. Use SkillPoints
+            </h3>
+
+            <p>
+                Use SkillPoints to participate
+                in learning sessions.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>
+                4. Learn & Grow
+            </h3>
+
+            <p>
+                Learn new skills, share knowledge,
+                and continue the cycle.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= POPULAR SKILLS ================= -->
+
+<section class="explore" id="explore">
+
+    <div class="section-heading explore-heading">
+
+        <h2>
+            Popular Skills
+        </h2>
+
+        <span>
+            Learn it. Share it. Swap it.
+        </span>
+
+    </div>
+
+
+    <div class="skills-carousel">
+
+        <button
+            class="carousel-btn prev-btn"
+            onclick="scrollSkills(-1)"
+            aria-label="Previous skills">
+            &#10094;
+        </button>
+
+
+        <div class="skills">
+
+            <div class="skill-card">
+                <p>Python</p>
+            </div>
+
+            <div class="skill-card">
+                <p>Web Development</p>
+            </div>
+
+            <div class="skill-card">
+                <p>Communication</p>
+            </div>
+
+            <div class="skill-card">
+                <p>Photography</p>
+            </div>
+
+            <div class="skill-card">
+                <p>Content Creation</p>
+            </div>
+
+        </div>
+
+
+        <button
+            class="carousel-btn next-btn"
+            onclick="scrollSkills(1)"
+            aria-label="Next skills">
+            &#10095;
+        </button>
+
+    </div>
+
+
+    <!-- Dancing character -->
+    <div class="dancing-character">
+
+        <img
+            src="{{ url_for('static', filename='charachter2.gif') }}"
+            alt="Dancing character"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEEDBACK + AI ================= -->
+
+<section class="more-section">
+
+    <div class="section-heading">
+
+        <h2>
+            Discover More
+        </h2>
+
+        <span>
+            Explore, connect and keep learning.
+        </span>
+
+    </div>
+
+
+    <div class="more-carousel">
+
+        <button
+            class="carousel-btn"
+            onclick="scrollMore(-1)"
+            aria-label="Previous">
+            &#10094;
+        </button>
+
+
+        <div class="more-cards">
+
+
+            <!-- FEEDBACK CARD -->
+
+            <div class="more-card feedback-card">
+
+                <div class="feedback-profile">
+
+                    <div class="profile-circle">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Swipe. Rate. Discover.
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="swipe-actions">
+
+                    <button
+                        class="swipe-button left-swipe"
+                        onclick="swipeProfile('left')">
+
+                        <strong>←</strong>
+
+                        <span>
+                            Swipe Left
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="swipe-button right-swipe"
+                        onclick="swipeProfile('right')">
+
+                        <span>
+                            Swipe Right
+                        </span>
+
+                        <strong>→</strong>
+
+                    </button>
+
+                </div>
+
+
+                <p class="feedback-note">
+
+                    Give feedback on your learning sessions
+                    and help others choose who they
+                    want to learn from.
+
+                </p>
+
+            </div>
+
+
+            <!-- AI MOCK TEST CARD -->
+
+            <div class="more-card mock-test-card">
+
+                <span class="coming-soon">
+                    COMING SOON
+                </span>
+
+                <h2>
+                    AI Mock Tests
+                </h2>
+
+                <p>
+                    Test your knowledge, practice your skills,
+                    and earn additional SkillPoints.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="carousel-btn"
+            onclick="scrollMore(1)"
+            aria-label="Next">
+            &#10095;
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="contact-us">
+
+            <h3>
+                Contact Us
+            </h3>
+
+            <p>
+                Email: priyasahoo1305@gmail.com
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 SkillSwap | Learn. Share. Grow
+
+    </div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+function scrollSkills(direction) {
+
+    const skills = document.querySelector(".skills");
+
+    const scrollAmount = 280;
+
+    skills.scrollBy({
+        left: direction * scrollAmount,
+        behavior: "smooth"
+    });
+
+}
+
+
+function scrollMore(direction) {
+
+    const cards = document.querySelector(".more-cards");
+
+    const scrollAmount = 500;
+
+    cards.scrollBy({
+        left: direction * scrollAmount,
+        behavior: "smooth"
+    });
+
+}
+
+
+function swipeProfile(direction) {
+
+    const card = document.querySelector(".feedback-card");
+
+    if (direction === "right") {
+
+        card.classList.add("swipe-right");
+
+    } else {
+
+        card.classList.add("swipe-left");
+
+    }
+
+
+    setTimeout(function () {
+
+        card.classList.remove("swipe-right");
+        card.classList.remove("swipe-left");
+
+    }, 700);
+
+}
+
+</script>
+
+
+</body>
+</html>

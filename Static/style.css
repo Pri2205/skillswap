@@ -1,0 +1,957 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "DM Sans", sans-serif;
+    background-color: #f5ebdd;
+    color: #303a35;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background-color: #6f8f78;
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    gap: 42px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 570px;
+    padding: 90px 9%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    background-color: #495d54;
+    background-image: url("/static/back.png");
+    background-size: 55% auto;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.hero-content {
+    max-width: 620px;
+    width: 50%;
+}
+
+
+/* HERO ANIMATION */
+
+.hero-title,
+.hero-subtitle,
+.hero-text,
+.hero-buttons {
+    opacity: 0;
+    transform: translateY(25px);
+    animation: heroFadeUp 0.8s ease forwards;
+}
+
+.hero-title {
+    animation-delay: 0.2s;
+}
+
+.hero-subtitle {
+    animation-delay: 0.5s;
+}
+
+.hero-text {
+    animation-delay: 0.8s;
+}
+
+.hero-buttons {
+    animation-delay: 1.1s;
+}
+
+@keyframes heroFadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* HERO TEXT */
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 64px;
+    line-height: 1.05;
+    margin: 0;
+    color: white;
+}
+
+.hero h1 span {
+    color: #e4c98c;
+}
+
+.hero h2 {
+    font-size: 25px;
+    color: #8bbbd7;
+    margin: 25px 0 18px;
+    font-weight: 600;
+}
+
+.hero-text {
+    max-width: 590px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #e5eee9;
+}
+
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.primary-btn {
+    background-color: #e4c98c;
+    color: #303a35;
+    border: 2px solid #e4c98c;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid #e4c98c;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+    transform: translateY(-3px);
+}
+
+
+/* ================= HOW IT WORKS ================= */
+
+.how-it-works {
+    background-color: #d4e2d7;
+    padding: 90px 8%;
+    border-top: 1px solid #c8bfae;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.section-heading h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 43px;
+    margin: 10px 0;
+    color: #303a35;
+}
+
+.section-heading span {
+    color: #59625e;
+}
+
+
+/* STEPS */
+
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 25px;
+    flex-wrap: nowrap;
+}
+
+.step:nth-child(1) {
+    height: 260px;
+}
+
+.step:nth-child(2) {
+    height: 290px;
+}
+
+.step:nth-child(3) {
+    height: 320px;
+}
+
+.step:nth-child(4) {
+    height: 350px;
+}
+
+.step {
+    background-color: #fffdf9;
+    width: 235px;
+    min-width: 0;
+    min-height: 0;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #e4c98c;
+    box-shadow: 0 8px 20px rgba(48, 58, 53, 0.08);
+    transition: 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 14px 28px rgba(48, 58, 53, 0.14);
+}
+
+.step h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 23px;
+    margin: 10px 0 12px;
+    color: #495d54;
+}
+
+.step p {
+    color: #626b66;
+    line-height: 1.6;
+}
+
+
+/* ================================================= */
+/* ================= POPULAR SKILLS ================= */
+/* ================================================= */
+
+.explore {
+    position: relative;
+    padding: 100px 8% 120px;
+    background-color: #315c5a;
+    border-top: 1px solid #294c4a;
+    overflow: hidden;
+}
+
+
+/* HEADING */
+
+.explore-heading {
+    text-align: left;
+    margin-left: 8%;
+    margin-bottom: 50px;
+}
+
+.explore-heading h2 {
+    color: white;
+    font-size: 48px;
+}
+
+.explore-heading span {
+    color: #dce9e6;
+}
+
+
+/* ================= SKILLS CAROUSEL ================= */
+
+.skills-carousel {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    max-width: 1050px;
+    margin: auto;
+}
+
+.skills {
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    flex: 1;
+    padding: 10px 5px 25px;
+}
+
+.skills::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* SKILL CARDS */
+
+.skill-card {
+    flex: 0 0 220px;
+    min-height: 170px;
+
+    background-color: #fffdf9;
+
+    border-radius: 22px;
+    border: 2px solid #e4c98c;
+
+    box-shadow: 0 10px 25px rgba(25, 18, 29, 0.20);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px) rotate(-1deg);
+    box-shadow: 0 18px 35px rgba(25, 18, 29, 0.30);
+}
+
+.skill-card p {
+    margin: 0;
+
+    font-family: "Playfair Display", serif;
+    font-size: 23px;
+    font-weight: 700;
+
+    color: #315c5a;
+    text-align: center;
+}
+
+
+/* ================= CAROUSEL ARROWS ================= */
+
+.carousel-btn {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+
+    border-radius: 50%;
+
+    border: 2px solid #e4c98c;
+    background-color: #e4c98c;
+
+    color: #303a35;
+
+    font-size: 22px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s ease;
+    z-index: 4;
+}
+
+.carousel-btn:hover {
+    transform: scale(1.1);
+    background-color: #fffdf9;
+}
+
+
+/* ================================================= */
+/* ============== BIG DANCING CHARACTER ============= */
+/* ================================================= */
+
+.dancing-character {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 110px;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+.dancing-character img {
+    position: absolute;
+
+    width: 125px;
+    height: auto;
+
+    bottom: 0;
+
+    right: -120px;
+
+    animation: danceMove 18s linear infinite;
+}
+
+@keyframes danceMove {
+
+    0% {
+        right: -120px;
+    }
+
+    100% {
+        right: 100%;
+    }
+
+}
+
+
+/* ================================================= */
+/* ============== FEEDBACK + AI SECTION ============= */
+/* ================================================= */
+
+.more-section {
+    padding: 85px 8%;
+
+    background-color: #c7d8cc;
+
+    border-top: 1px solid #aebfb2;
+
+    overflow: hidden;
+}
+
+.more-section .section-heading {
+    margin-bottom: 40px;
+}
+
+.more-section .section-heading h2 {
+    color: #34453c;
+}
+
+.more-section .section-heading span {
+    color: #53665b;
+}
+
+
+/* HORIZONTAL CAROUSEL */
+
+.more-carousel {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    max-width: 1050px;
+
+    margin: auto;
+}
+
+.more-cards {
+    display: flex;
+
+    gap: 22px;
+
+    overflow-x: auto;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+
+    flex: 1;
+
+    padding: 10px 5px 25px;
+}
+
+.more-cards::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* BOTH CARDS */
+
+.more-card {
+    flex: 0 0 480px;
+
+    min-height: 260px;
+
+    background-color: #fffdf9;
+
+    border-radius: 22px;
+
+    border: 1px solid #e4c98c;
+
+    box-shadow: 0 10px 25px rgba(48, 58, 53, 0.10);
+
+    padding: 30px;
+}
+
+
+/* ================= FEEDBACK CARD ================= */
+
+.feedback-card {
+    position: relative;
+
+    transition:
+        transform 0.7s ease,
+        opacity 0.7s ease;
+}
+
+.feedback-profile {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+}
+
+.profile-circle {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: #d4e2d7;
+
+    font-size: 25px;
+}
+
+.feedback-profile h3 {
+    margin: 0 0 5px;
+
+    color: #495d54;
+}
+
+.feedback-profile p {
+    margin: 0;
+
+    color: #6b746f;
+}
+
+
+/* ================= SWIPE BUTTONS ================= */
+
+.swipe-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-top: 10px;
+}
+
+.swipe-button {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 22px;
+
+    border-radius: 30px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    border: none;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.swipe-button strong {
+    font-size: 22px;
+    line-height: 1;
+}
+
+
+/* LEFT */
+
+.left-swipe {
+    color: #765d58;
+    background-color: #eee1dc;
+}
+
+.left-swipe:hover {
+    transform: translateX(-7px);
+
+    box-shadow:
+        0 6px 15px rgba(118, 93, 88, 0.20);
+}
+
+
+/* RIGHT */
+
+.right-swipe {
+    color: #496653;
+    background-color: #dce9df;
+}
+
+.right-swipe:hover {
+    transform: translateX(7px);
+
+    box-shadow:
+        0 6px 15px rgba(73, 102, 83, 0.20);
+}
+
+
+/* ================= SWIPE ANIMATION ================= */
+
+.feedback-card.swipe-right {
+    animation: swipeRight 0.7s ease;
+}
+
+.feedback-card.swipe-left {
+    animation: swipeLeft 0.7s ease;
+}
+
+@keyframes swipeRight {
+
+    0% {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    45% {
+        transform: translateX(180px) rotate(8deg);
+        opacity: 0.5;
+    }
+
+    70% {
+        transform: translateX(-25px) rotate(-2deg);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+
+}
+
+@keyframes swipeLeft {
+
+    0% {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    45% {
+        transform: translateX(-180px) rotate(-8deg);
+        opacity: 0.5;
+    }
+
+    70% {
+        transform: translateX(25px) rotate(2deg);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+
+}
+
+
+/* FEEDBACK TEXT */
+
+.feedback-note {
+    text-align: center;
+
+    margin: 25px auto 0;
+
+    max-width: 500px;
+
+    line-height: 1.6;
+
+    color: #526158;
+}
+
+
+/* ================= AI MOCK TEST ================= */
+
+.mock-test-card {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background-color: #fffdf9;
+}
+
+.coming-soon {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    border-radius: 20px;
+
+    background-color: #e4c98c;
+
+    color: #303a35;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 15px;
+}
+
+.mock-test-card h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 36px;
+
+    margin: 5px 0 15px;
+
+    color: #495d54;
+}
+
+.mock-test-card p {
+    max-width: 400px;
+
+    margin: auto;
+
+    line-height: 1.7;
+
+    color: #626b66;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background-color: #34453c;
+
+    color: white;
+
+    padding: 55px 8% 25px;
+}
+
+.footer-content {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+}
+
+footer h3 {
+    margin-top: 0;
+}
+
+.contact-us p {
+    color: #d2ddd6;
+}
+
+.copyright {
+    text-align: center;
+
+    border-top: 1px solid #607066;
+
+    margin-top: 40px;
+
+    padding-top: 20px;
+
+    color: #c5d0ca;
+
+    font-size: 13px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 70px 6%;
+
+        background-size: 80% auto;
+
+        background-position: center top;
+    }
+
+    .hero-content {
+        width: 100%;
+
+        max-width: 680px;
+
+        margin-top: 300px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+
+    /* POPULAR SKILLS */
+
+    .explore {
+        padding: 85px 5% 100px;
+    }
+
+    .explore-heading {
+        text-align: center;
+
+        margin-left: 0;
+    }
+
+    .explore-heading h2 {
+        font-size: 40px;
+    }
+
+
+    /* BIG DANCING CHARACTER */
+
+    .dancing-character {
+        height: 80px;
+    }
+
+    .dancing-character img {
+        width: 88px;
+        animation: danceMove 18s linear infinite;
+    }
+
+
+    /* SKILLS CAROUSEL */
+
+    .skills-carousel {
+        gap: 8px;
+    }
+
+    .skills {
+        gap: 15px;
+    }
+
+    .skill-card {
+        flex: 0 0 190px;
+
+        min-height: 150px;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+
+        min-width: 40px;
+
+        font-size: 18px;
+    }
+
+
+    /* MORE SECTION */
+
+    .more-section {
+        padding: 70px 5%;
+    }
+
+    .more-carousel {
+        gap: 8px;
+    }
+
+    .more-cards {
+        gap: 15px;
+    }
+
+    .more-card {
+        flex: 0 0 290px;
+
+        min-height: 250px;
+
+        padding: 25px 18px;
+    }
+
+
+    /* FEEDBACK */
+
+    .feedback-profile {
+        gap: 12px;
+    }
+
+    .feedback-profile h3 {
+        font-size: 17px;
+    }
+
+    .swipe-actions {
+        gap: 10px;
+    }
+
+    .swipe-button {
+        padding: 10px 14px;
+    }
+
+
+    /* AI */
+
+    .mock-test-card h2 {
+        font-size: 30px;
+    }
+
+}

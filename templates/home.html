@@ -20,9 +20,19 @@
 
 <nav class="navbar">
 
-    <div class="logo">
+    <div class="logo"
+         style="display: flex; align-items: center; gap: 10px;">
+
+        <img
+            src="{{ url_for('static', filename='logo.png') }}"
+            alt="SkillSwap logo"
+            style="width: 65px; height: 65px; object-fit: contain;"
+        >
+
         SkillSwap
+
     </div>
+
 
     <div class="nav-links">
 
@@ -34,6 +44,28 @@
 
         <a href="#how-it-works">
             How It Works
+        </a>
+
+        <a
+            href="/login"
+            class="profile-btn"
+            aria-label="Login"
+            title="Login"
+            style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: 2px solid #e4c98c;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                color: white;
+                font-size: 19px;
+                margin-left: 5px;
+            "
+        >
+            👤
         </a>
 
     </div>
@@ -48,28 +80,39 @@
     <div class="hero-content">
 
         <h1 class="hero-title">
+
             Swap Skills,<br>
+
             <span>Unlock Potential.</span>
+
         </h1>
 
         <h2 class="hero-subtitle">
+
             Learning beyond classrooms.
+
         </h2>
 
         <p class="hero-text">
+
             A peer-to-peer skill exchange and learning platform
             where students can exchange skills, learn from each
             other, and grow together using a SkillPoint based system.
+
         </p>
 
         <div class="hero-buttons">
 
             <button class="primary-btn">
+
                 Explore Skills
+
             </button>
 
             <button class="secondary-btn">
+
                 Join SkillSwap
+
             </button>
 
         </div>
@@ -181,7 +224,9 @@
             class="carousel-btn prev-btn"
             onclick="scrollSkills(-1)"
             aria-label="Previous skills">
+
             &#10094;
+
         </button>
 
 
@@ -214,13 +259,16 @@
             class="carousel-btn next-btn"
             onclick="scrollSkills(1)"
             aria-label="Next skills">
+
             &#10095;
+
         </button>
 
     </div>
 
 
     <!-- Dancing character -->
+
     <div class="dancing-character">
 
         <img
@@ -256,7 +304,9 @@
             class="carousel-btn"
             onclick="scrollMore(-1)"
             aria-label="Previous">
+
             &#10094;
+
         </button>
 
 
@@ -338,8 +388,10 @@
                 </h2>
 
                 <p>
+
                     Test your knowledge, practice your skills,
                     and earn additional SkillPoints.
+
                 </p>
 
             </div>
@@ -352,7 +404,9 @@
             class="carousel-btn"
             onclick="scrollMore(1)"
             aria-label="Next">
+
             &#10095;
+
         </button>
 
     </div>
@@ -373,7 +427,7 @@
             </h3>
 
             <p>
-                Email: priyasahoo1305@gmail.com
+                Email: priyasahoo1305@gmail.com, shaiwaltanika@gmail.com, nikhilpundiredu@gmail.com
             </p>
 
         </div>

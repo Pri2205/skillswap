@@ -19,16 +19,42 @@ body {
 .navbar {
     background-color: #6f8f78;
     padding: 22px 7%;
+     padding-left: 3%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
     color: white;
     font-family: "Playfair Display", serif;
     font-size: 28px;
     font-weight: 700;
+
+    opacity: 0;
+    transform: translateX(-80px);
+    animation: logoSlideIn 1s ease-out 0.2s forwards;
+}
+@keyframes logoSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
 }
 
 .nav-links {
@@ -48,6 +74,22 @@ body {
     text-decoration: underline;
 }
 
+/* PROFILE / LOGIN ICON */
+
+.profile-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #e4c98c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    font-size: 19px;
+    margin-left: 5px;
+}
+
 
 /* ================= HERO ================= */
 
@@ -59,7 +101,7 @@ body {
     align-items: center;
 
     background-color: #495d54;
-    background-image: url("/Static/back.png");
+    background-image: url("back.png");
     background-size: 55% auto;
     background-repeat: no-repeat;
     background-position: left center;
@@ -813,6 +855,11 @@ footer h3 {
     .navbar {
         flex-direction: column;
         gap: 18px;
+    }
+
+    .logo img {
+        width: 50px;
+        height: 50px;
     }
 
     .nav-links {

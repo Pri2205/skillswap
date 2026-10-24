@@ -782,11 +782,32 @@ img { max-width: 100%; }
 
 /* ============ 12. AI MOCK TESTS (with shadow) ============ */
 .mock {
-  margin-top: 100px;
+  position: relative;
+  margin-top: 70px;
+  padding: 110px 0 100px;
+  background: linear-gradient(180deg, #E4D3F8 0%, var(--lavender) 100%);
 }
 
+/* curved top edge */
+.mock::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 50px;
+  background: var(--page);
+  clip-path: ellipse(60% 100% at 50% 0%);
+}
+
+.mock > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* the dark box inside the band */
 .mock-box {
-  padding: clamp(32px, 6vw, 60px);
+  padding: clamp(28px, 5vw, 48px);
   text-align: center;
   color: #fff;
   background: var(--ink);
@@ -825,7 +846,7 @@ img { max-width: 100%; }
 
 /* ============ 13. FOOTER ============ */
 footer {
-  margin-top: 90px;
+  margin-top: 0;
   padding: 52px 0 26px;
   color: #fff;
   background: var(--purple-deep);
@@ -953,3 +974,20 @@ footer a:hover {
   background: #E3F6EC;
   border-radius: 999px;
 }
+
+/* FAQ page */
+.faq-page { padding: 60px 0 80px; }
+
+.faq-page h2 {
+  margin-top: 24px;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  color: var(--purple);
+}
+
+.back-link {
+  font-weight: 600;
+  color: var(--purple);
+}
+
+.back-link:hover { text-decoration: underline; }

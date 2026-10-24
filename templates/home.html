@@ -1,507 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillSwap</title>
 
-    <title>SkillSwap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-          rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
 
-<!-- ================= NAVBAR ================= -->
-
-<nav class="navbar">
-
-    <div class="logo"
-         style="display: flex; align-items: center; gap: 10px;">
-
-        <img
-            src="{{ url_for('static', filename='logo.png') }}"
-            alt="SkillSwap logo"
-            style="width: 65px; height: 65px; object-fit: contain;"
-        >
-
-        SkillSwap
-
-    </div>
-
-
-    <div class="nav-links">
-
-        <a href="/">Home</a>
-
-        <a href="#explore">
-            Explore Skills
-        </a>
-
-        <a href="#how-it-works">
-            How It Works
-        </a>
-
-        <a
-            href="/login"
-            class="profile-btn"
-            aria-label="Login"
-            title="Login"
-            style="
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                border: 2px solid #e4c98c;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                text-decoration: none;
-                color: white;
-                font-size: 19px;
-                margin-left: 5px;
-            "
-        >
-            👤
-        </a>
-
-    </div>
-
-</nav>
-
-
-<!-- ================= HERO ================= -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <h1 class="hero-title">
-
-            Swap Skills,<br>
-
-            <span>Unlock Potential.</span>
-
-        </h1>
-
-        <h2 class="hero-subtitle">
-
-            Learning beyond classrooms.
-
-        </h2>
-
-        <p class="hero-text">
-
-            A peer-to-peer skill exchange and learning platform
-            where students can exchange skills, learn from each
-            other, and grow together using a SkillPoint based system.
-
-        </p>
-
-        <div class="hero-buttons">
-
-            <button class="primary-btn">
-
-                Explore Skills
-
-            </button>
-
-            <button class="secondary-btn">
-
-                Join SkillSwap
-
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= HOW IT WORKS ================= -->
-
-<section class="how-it-works" id="how-it-works">
-
-    <div class="section-heading">
-
-        <h2>
-            How SkillSwap Works
-        </h2>
-
-        <span>
-            Learn from students. Share what you know.
-        </span>
-
-    </div>
-
-
-    <div class="steps">
-
-        <div class="step">
-
-            <h3>
-                1. Find a Skill
-            </h3>
-
-            <p>
-                Explore skills that you want to learn
-                from other students.
-            </p>
-
-        </div>
-
-
-        <div class="step">
-
-            <h3>
-                2. Request to Learn
-            </h3>
-
-            <p>
-                Send a learning request to a student
-                who can teach that skill.
-            </p>
-
-        </div>
-
-
-        <div class="step">
-
-            <h3>
-                3. Use SkillPoints
-            </h3>
-
-            <p>
-                Use SkillPoints to participate
-                in learning sessions.
-            </p>
-
-        </div>
-
-
-        <div class="step">
-
-            <h3>
-                4. Learn & Grow
-            </h3>
-
-            <p>
-                Learn new skills, share knowledge,
-                and continue the cycle.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= POPULAR SKILLS ================= -->
-
-<section class="explore" id="explore">
-
-    <div class="section-heading explore-heading">
-
-        <h2>
-            Popular Skills
-        </h2>
-
-        <span>
-            Learn it. Share it. Swap it.
-        </span>
-
-    </div>
-
-
-    <div class="skills-carousel">
-
-        <button
-            class="carousel-btn prev-btn"
-            onclick="scrollSkills(-1)"
-            aria-label="Previous skills">
-
-            &#10094;
-
+  <!-- TOP AREA: navbar and hero share one background -->
+  <div class="top">
+
+    <header class="navbar">
+      <a href="#home" class="brand">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="SkillSwap logo">
+        <span>SkillSwap</span>
+      </a>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#explore">Explore Skills</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#feedback">Feedback</a>
+      </nav>
+
+      <div class="profile">
+        <button id="profileBtn" aria-label="Profile menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path>
+          </svg>
         </button>
+        <ul id="profileMenu" class="dropdown">
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Sign up</a></li>
+        </ul>
+      </div>
+    </header>
 
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <h1>Swap Skills, Unlock Potential.</h1>
+        <h2><span class="highlight">Learning beyond classrooms.</span></h2>
+        <p>Teach what you know, learn what you don't. Grow together using SkillPoints instead of money.</p>
+        <a href="#explore" class="btn">Explore skills</a>
+        <a href="/register" class="btn btn-outline">Join SkillSwap</a>
+      </div>
 
-        <div class="skills">
-
-            <div class="skill-card">
-                <p>Python</p>
-            </div>
-
-            <div class="skill-card">
-                <p>Web Development</p>
-            </div>
-
-            <div class="skill-card">
-                <p>Communication</p>
-            </div>
-
-            <div class="skill-card">
-                <p>Photography</p>
-            </div>
-
-            <div class="skill-card">
-                <p>Content Creation</p>
-            </div>
-
+      <div class="swap-card">
+        <h3>Try a swap</h3>
+        <div class="swap-row">
+          <div class="swap-side teach">
+            <small>I can teach</small>
+            <strong>Python</strong>
+            <span class="points">+100</span>
+          </div>
+          <span class="swap-arrow">⇄</span>
+          <div class="swap-side learn">
+            <small>I want to learn</small>
+            <strong>Communication</strong>
+            <span class="points">-100</span>
+          </div>
         </div>
 
+        <p class="chips-label">I can teach</p>
+        <div class="chips" id="teachChips" role="group" aria-label="Skill you can teach"></div>
 
-        <button
-            class="carousel-btn next-btn"
-            onclick="scrollSkills(1)"
-            aria-label="Next skills">
+        <p class="chips-label">I want to learn</p>
+        <div class="chips" id="learnChips" role="group" aria-label="Skill you want to learn"></div>
 
-            &#10095;
+        <div class="swap-foot">
+          <p class="balance"><span class="coin">SP</span> Balance: 400 SkillPoints</p>
+          <button id="swapBtn" class="btn">Swap them</button>
+        </div>
+        <p class="swap-note" id="swapNote" role="status">Pick a skill on each side, then swap.</p>
+      </div>
+    </section>
 
-        </button>
+  </div>
 
-    </div>
+  <main>
 
+    <!-- EXPLORE SKILLS -->
+    <section id="explore" class="explore">
+      <div class="container">
+        <h2>Find something to learn</h2>
+        <p class="section-sub">Explore skills from students who are ready to teach them.</p>
+      </div>
 
-    <!-- Dancing character -->
+      <!-- the words "Trending skills" slide right to left -->
+      <div class="word-ticker" aria-label="Trending skills">
+        <div class="word-track">
+          <div class="word-group">
+            <span>Trending skills</span><span>Trending skills</span><span>Trending skills</span>
+            <span>Trending skills</span><span>Trending skills</span><span>Trending skills</span>
+          </div>
+          <div class="word-group" aria-hidden="true">
+            <span>Trending skills</span><span>Trending skills</span><span>Trending skills</span>
+            <span>Trending skills</span><span>Trending skills</span><span>Trending skills</span>
+          </div>
+        </div>
+      </div>
 
-    <div class="dancing-character">
+      <div class="container skill-grid">
+        <div class="skill">
+          <span class="skill-icon">🗣️</span>
+          <h3>Communication / English Speaking</h3>
+          <p>Speak with confidence.</p>
+          <span class="skill-meta">14 students teach this</span>
+        </div>
+        <div class="skill">
+          <span class="skill-icon">🐍</span>
+          <h3>Python</h3>
+          <p> Learn python from scratch.</p>
+          <span class="skill-meta">7 students teach this</span>
+        </div>
+        <div class="skill">
+          <span class="skill-icon">⚽</span>
+          <h3>Football</h3>
+          <p>Drills, positions and match tactics.</p>
+          <span class="skill-meta">7 students teach this</span>
+        </div>
+        <div class="skill">
+          <span class="skill-icon">🌐</span>
+          <h3>Web Development</h3>
+          <p>HTML, CSS and JavaScript from scratch.</p>
+          <span class="skill-meta">5 students teach this</span>
+        </div>
+        <div class="skill">
+          <span class="skill-icon">🤖</span>
+          <h3>AI</h3>
+          <p>Machine learning basics and using AI tools.</p>
+          <span class="skill-meta">7 students teach this</span>
+        </div>
+        <div class="skill">
+          <span class="skill-icon">🏀</span>
+          <h3>Basketball</h3>
+          <p>Shooting, dribbling and game sense.</p>
+          <span class="skill-meta">2 students teach this</span>
+        </div>
+        <div class="skill">
+          <span class="skill-icon">🌍</span>
+          <h3>French / Other Languages</h3>
+          <p>Coversation and reading.</p>
+          <span class="skill-meta">9 students teach this</span>
+        </div>
+        <div class="skill">
+          <span class="skill-icon">🎬</span>
+          <h3>Content Creation</h3>
+          <p>Scripts, shooting and editing for social media.</p>
+          <span class="skill-meta">11 students teach this</span>
+        </div>
+        <div class="skill">
+          <span class="skill-icon">🎨</span>
+          <h3>Graphic Design</h3>
+          <p>Posters and layouts in Canva and Figma.</p>
+          <span class="skill-meta">6 students teach this</span>
+        </div>
+        <div class="skill">
+          <span class="skill-icon">🤝</span>
+          <h3>Interview Prep</h3>
+          <p>Mock interviews and resume feedback.</p>
+          <span class="skill-meta">5 students teach this</span>
+          </div>
+        <div class="skill">
+          <span class="skill-icon">📊</span>
+          <h3>Management skills</h3>
+          <p>Expense and time management.</p>
+          <span class="skill-meta">12 students teach this</span>
+        </div>
+      </div>
+    </section>
 
-        <img
-            src="{{ url_for('static', filename='charachter2.gif') }}"
-            alt="Dancing character"
-        >
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="how">
+      <div class="container how-inner">
+        <h2>How SkillSwap works</h2>
+        <p class="section-sub">Learn from students. Share what you know.</p>
 
-    </div>
-
-</section>
-
-
-<!-- ================= FEEDBACK + AI ================= -->
-
-<section class="more-section">
-
-    <div class="section-heading">
-
-        <h2>
-            Discover More
-        </h2>
-
-        <span>
-            Explore, connect and keep learning.
-        </span>
-
-    </div>
-
-
-    <div class="more-carousel">
-
-        <button
-            class="carousel-btn"
-            onclick="scrollMore(-1)"
-            aria-label="Previous">
-
-            &#10094;
-
-        </button>
-
-
-        <div class="more-cards">
-
-
-            <!-- FEEDBACK CARD -->
-
-            <div class="more-card feedback-card">
-
-                <div class="feedback-profile">
-
-                    <div class="profile-circle">
-                        👤
-                    </div>
-
-                    <div>
-
-                        <h3>
-                            Swipe. Rate. Discover.
-                        </h3>
-
-                    </div>
-
-                </div>
-
-
-                <div class="swipe-actions">
-
-                    <button
-                        class="swipe-button left-swipe"
-                        onclick="swipeProfile('left')">
-
-                        <strong>←</strong>
-
-                        <span>
-                            Swipe Left
-                        </span>
-
-                    </button>
-
-
-                    <button
-                        class="swipe-button right-swipe"
-                        onclick="swipeProfile('right')">
-
-                        <span>
-                            Swipe Right
-                        </span>
-
-                        <strong>→</strong>
-
-                    </button>
-
-                </div>
-
-
-                <p class="feedback-note">
-
-                    Give feedback on your learning sessions
-                    and help others choose who they
-                    want to learn from.
-
-                </p>
-
-            </div>
-
-
-            <!-- AI MOCK TEST CARD -->
-
-            <div class="more-card mock-test-card">
-
-                <span class="coming-soon">
-                    COMING SOON
-                </span>
-
-                <h2>
-                    AI Mock Tests
-                </h2>
-
-                <p>
-
-                    Test your knowledge, practice your skills,
-                    and earn additional SkillPoints.
-
-                </p>
-
-            </div>
-
-
+        <div class="steps">
+          <div class="step reveal">
+            <span class="step-num">1</span>
+            <h3>Find a skill</h3>
+            <p>Explore skills that you want to learn from other students.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num">2</span>
+            <h3>Request to learn</h3>
+            <p>Send a learning request to a student who can teach that skill.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num">3</span>
+            <h3>Use SkillPoints</h3>
+            <p>Use SkillPoints to participate in learning sessions.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num">4</span>
+            <h3>Learn &amp; grow</h3>
+            <p>Learn new skills, share knowledge, and continue the cycle.</p>
+          </div>
         </div>
 
+        <div class="loop reveal">
+          <div class="loop-pill"><span class="loop-icon">↻</span> The loop repeats: teach, earn, learn, grow</div>
+          <img src="{{ url_for('static', filename='charachter2.gif') }}" alt="Dancing character" class="dancer">
+        </div>
+      </div>
+    </section>
 
-        <button
-            class="carousel-btn"
-            onclick="scrollMore(1)"
-            aria-label="Next">
+    <!-- FEEDBACK -->
+    <section id="feedback" class="container feedback">
+      <div class="feedback-text">
+        <h2>Swipe. Rate. Discover.</h2>
+        <p>Give feedback on your learning sessions and help others choose who they want to learn from. Swipe right if a session helped, left if it didn't.</p>
+      </div>
 
-            &#10095;
+      <div class="feedback-demo">
+        <div class="deck" id="deck">
+          <!-- the LAST card in the code shows on TOP, so Priya is last -->
+          <div class="profile-card" style="--c: var(--orchid)">
+            <span class="stamp stamp-yes">HELPFUL</span>
+            <span class="stamp stamp-no">NOPE</span>
+            <div class="avatar">N</div>
+            <h3>Nikhil</h3>
+            <p class="role">Teaches Football</p>
+            <p class="rating">4.6 average over 9 sessions</p
+          </div>
 
-        </button>
+          <div class="profile-card" style="--c: var(--ocean)">
+            <span class="stamp stamp-yes">HELPFUL</span>
+            <span class="stamp stamp-no">NOPE</span>
+            <div class="avatar">T</div>
+            <h3>Tanika</h3>
+            <p class="role">Teaches Communication</p>
+            <p class="rating">4.6 average over 9 sessions</p
+          </div>
 
-    </div>
+          <div class="profile-card" style="--c: var(--purple)">
+            <span class="stamp stamp-yes">HELPFUL</span>
+            <span class="stamp stamp-no">NOPE</span>
+            <div class="avatar">P</div>
+            <h3>Priya</h3>
+            <p class="role">Teaches Python and Web Development</p>
+            <p class="rating">4.6 average over 9 sessions</p
+          </div>
 
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-    <div class="footer-content">
-
-        <div class="contact-us">
-
-            <h3>
-                Contact Us
-            </h3>
-
-            <p>
-                Email: priyasahoo1305@gmail.com, shaiwaltanika@gmail.com, nikhilpundiredu@gmail.com
-            </p>
-
+          <div class="deck-done" id="deckDone">
+            <p>All rated</p>
+            <button class="btn" id="resetBtn">Start again</button>
+          </div>
         </div>
 
+        <div class="swipe-buttons">
+            <p class="swipe-msg" id="swipeMsg" role="status">Drag a card or use the buttons.</p>
+          <button id="noBtn" class="round no" aria-label="Not helpful">✕</button>
+          <button id="yesBtn" class="round yes" aria-label="Helpful">✓</button>
+        </div>
+        <p class="tally" id="tally">0 helpful · 0 not helpful</p>
+      </div>
+    </section>
+
+    <!-- AI MOCK TESTS -->
+    <section class="container mock">
+      <div class="mock-box">
+        <span class="tag">Coming soon</span>
+        <h2>AI Mock Tests</h2>
+        <p>Test your knowledge, practice your skills, and earn additional SkillPoints.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h3>SkillSwap</h3>
+        <p>Learn. Share. Grow.</p>
+      </div>
+      <div>
+        <h3>Contact us</h3>
+        <a href="mailto:priyasahoo1305@gmail.com">skillswap.helpdesk@gmail.com</a>
+      </div>
     </div>
+    <p class="copy">© 2026 SkillSwap | Learn. Share. Grow</p>
+  </footer>
 
-
-    <div class="copyright">
-
-        © 2026 SkillSwap | Learn. Share. Grow
-
-    </div>
-
-</footer>
-
-
-<!-- ================= JAVASCRIPT ================= -->
-
-<script>
-
-function scrollSkills(direction) {
-
-    const skills = document.querySelector(".skills");
-
-    const scrollAmount = 280;
-
-    skills.scrollBy({
-        left: direction * scrollAmount,
-        behavior: "smooth"
-    });
-
-}
-
-
-function scrollMore(direction) {
-
-    const cards = document.querySelector(".more-cards");
-
-    const scrollAmount = 500;
-
-    cards.scrollBy({
-        left: direction * scrollAmount,
-        behavior: "smooth"
-    });
-
-}
-
-
-function swipeProfile(direction) {
-
-    const card = document.querySelector(".feedback-card");
-
-    if (direction === "right") {
-
-        card.classList.add("swipe-right");
-
-    } else {
-
-        card.classList.add("swipe-left");
-
-    }
-
-
-    setTimeout(function () {
-
-        card.classList.remove("swipe-right");
-        card.classList.remove("swipe-left");
-
-    }, 700);
-
-}
-
-</script>
-
-
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

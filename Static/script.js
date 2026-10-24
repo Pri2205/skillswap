@@ -122,20 +122,13 @@ swapBtn.addEventListener("click", function () {
 
 
 // ============ 3. SWIPE FEEDBACK CARDS ============
+// ============ 3. SWIPE FEEDBACK CARDS ============
 const deck = document.getElementById("deck");
-const tally = document.getElementById("tally");
-const swipeMsg = document.getElementById("swipeMsg");   // CHANGED: new message line
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 
 const initialDeck = deck.innerHTML;      // remember the cards so "Start again" can restore them
-let helpful = 0;
-let notHelpful = 0;
 let busy = false;                        // true while a card is flying away
-
-function updateTally() {
-  tally.textContent = helpful + " helpful · " + notHelpful + " not helpful";
-}
 
 // the card on top is the LAST .profile-card in the deck
 function topCard() {
@@ -149,7 +142,6 @@ function fling(direction) {
   if (!card || busy) return;
   busy = true;
 
-  // CHANGED: the card slides away first and fades a little later, so the stamp stays visible
   card.classList.remove("dragging");
   card.style.transition = "transform 0.4s ease, opacity 0.25s ease 0.15s";
   card.style.transform = "translateX(" + direction * 500 + "px) rotate(" + direction * 25 + "deg)";
@@ -157,18 +149,6 @@ function fling(direction) {
 
   const stamp = card.querySelector(direction > 0 ? ".stamp-yes" : ".stamp-no");
   stamp.style.opacity = "1";
-
-  // CHANGED: say what just happened
-  const name = card.querySelector("h3").textContent;
-  swipeMsg.textContent = name + (direction > 0 ? " marked as helpful" : " marked as not helpful");
-  swipeMsg.className = "swipe-msg " + (direction > 0 ? "yes" : "no");
-
-  if (direction > 0) {
-    helpful++;
-  } else {
-    notHelpful++;
-  }
-  updateTally();
 
   setTimeout(function () {
     card.remove();                       // delete the card from the page
@@ -243,10 +223,5 @@ deck.addEventListener("pointercancel", endDrag);
 deck.addEventListener("click", function (event) {
   if (event.target.id === "resetBtn") {
     deck.innerHTML = initialDeck;
-    helpful = 0;
-    notHelpful = 0;
-    updateTally();
-    swipeMsg.textContent = "Drag a card or use the buttons.";   // CHANGED
-    swipeMsg.className = "swipe-msg";                           // CHANGED
   }
 });

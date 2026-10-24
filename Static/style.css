@@ -71,7 +71,6 @@ img { max-width: 100%; }
 }
 
 /* ============ 4. NAVBAR (full width, bordered, matching colour) ============ */
-/* CHANGED: full-width version */
 .navbar {
   position: relative;          /* NOT sticky: it scrolls away with the page */
   z-index: 10;
@@ -634,7 +633,7 @@ img { max-width: 100%; }
 .js .step:nth-child(3).reveal { transition-delay: 0.2s; }
 .js .step:nth-child(4).reveal { transition-delay: 0.3s; }
 
-/* ============ 11. FEEDBACK (text left, cards right) ============ */
+/* ============ 11. SWIPE FEEDBACK (text left, cards right) ============ */
 .feedback {
   margin-top: 110px;
   display: grid;
@@ -682,7 +681,7 @@ img { max-width: 100%; }
   cursor: grabbing;
 }
 
-/* CHANGED: cards behind the top card now peek out clearly */
+/* cards behind the top card peek out */
 .profile-card:nth-last-child(3) {
   transform: scale(0.94) translateY(22px);
   background: #FAF6FF;
@@ -714,7 +713,7 @@ img { max-width: 100%; }
   color: var(--muted);
 }
 
-/* CHANGED: rating pill under each person's skill */
+/* rating pill under each person's skill */
 .profile-card .rating {
   margin-top: 16px;
   padding: 4px 14px;
@@ -725,7 +724,7 @@ img { max-width: 100%; }
   border-radius: 999px;
 }
 
-/* CHANGED: bigger, clearer HELPFUL / NOPE stamps */
+/* HELPFUL / NOPE stamps */
 .stamp {
   position: absolute;
   top: 22px;
@@ -781,26 +780,9 @@ img { max-width: 100%; }
 .round.no  { color: #FF5C7A; }
 .round.yes { color: #3DDC97; }
 
-/* CHANGED: message that says what just happened */
-.swipe-msg {
-  min-height: 1.6em;
-  margin-top: 16px;
-  font-weight: 600;
-  color: var(--muted);
-}
-
-.swipe-msg.yes { color: #1F8F63; }
-.swipe-msg.no  { color: #C23B5E; }
-
-.tally {
-  margin-top: 4px;
-  font-weight: 600;
-  color: var(--muted);
-}
-
-/* ============ 12. AI MOCK TESTS (tilted, with shadow) ============ */
+/* ============ 12. AI MOCK TESTS (with shadow) ============ */
 .mock {
-  margin-top: 110px;
+  margin-top: 100px;
 }
 
 .mock-box {
@@ -811,7 +793,6 @@ img { max-width: 100%; }
   border: 3px solid var(--ink);
   border-radius: 28px;
   box-shadow: 8px 8px 0 var(--gold);
-  transform: rotate(-1.5deg);
 }
 
 .tag {
@@ -844,7 +825,7 @@ img { max-width: 100%; }
 
 /* ============ 13. FOOTER ============ */
 footer {
-  margin-top: 110px;
+  margin-top: 90px;
   padding: 52px 0 26px;
   color: #fff;
   background: var(--purple-deep);
@@ -917,4 +898,58 @@ footer a:hover {
 
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
+}
+
+/* ============ 16. FEEDBACK & FAQ PAGE (not used on the homepage yet) ============ */
+.site-feedback {
+  text-align: center;
+}
+
+.site-feedback h2 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  color: var(--purple);
+}
+
+.feedback-form {
+  display: grid;
+  gap: 14px;
+  max-width: 560px;
+  margin: 32px auto 0;
+  text-align: left;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+  outline: none;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px var(--lilac);
+}
+
+.feedback-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.feedback-form .btn { justify-self: start; }
+
+.form-ok {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 20px;
+  font-weight: 600;
+  color: #1F8F63;
+  background: #E3F6EC;
+  border-radius: 999px;
 }

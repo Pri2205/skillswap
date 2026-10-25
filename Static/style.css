@@ -991,3 +991,258 @@ footer a:hover {
 }
 
 .back-link:hover { text-decoration: underline; }
+/* ============ 17. SIGN IN / SIGN UP PAGES ============ */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at 10% 90%, rgba(178, 116, 193, 0.38) 0, transparent 40%),
+    radial-gradient(circle at 90% 12%, rgba(92, 195, 217, 0.28) 0, transparent 38%),
+    linear-gradient(135deg, var(--purple-deep) 0%, var(--purple) 55%, var(--ocean) 115%);
+  background-attachment: fixed;
+}
+
+/* top bar: logo and back to home */
+.auth-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 5%;
+}
+
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.auth-brand img {
+  height: 38px;
+  width: auto;
+  padding: 4px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.back-home {
+  padding: 8px 18px;
+  font-weight: 600;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  transition: background 0.2s;
+}
+
+.back-home:hover { background: rgba(255, 255, 255, 0.14); }
+
+/* the lilac box, centred on the page */
+.auth-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 5% 48px;
+}
+
+/* wrapper holds the box + the hello character (width is set here) */
+.hello-wrap { position: relative; width: min(480px, 100%); }
+.hello-wrap.wide { width: min(540px, 100%); }
+
+.auth-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 30px 32px;
+  background: var(--lilac);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(20, 10, 60, 0.35);
+}
+
+.auth-card h2 {
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  font-weight: 800;
+  color: var(--purple);
+}
+
+.auth-bonus {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 6px 16px 6px 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--purple-deep);
+  background: #fff;
+  border-radius: 999px;
+}
+
+/* form */
+.auth-form {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.field input {
+  width: 100%;
+  padding: 11px 14px;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px var(--lavender);
+}
+
+.field.invalid input { border-color: #B02A4E; }
+
+.field-error {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: #B02A4E;
+.field-error:empty { display: none; }
+}
+
+/* password with Show / Hide button */
+.pw-wrap { position: relative; }
+.pw-wrap input { padding-right: 76px; }
+
+.pw-toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--purple);
+  background: none;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pw-toggle:hover { background: var(--lilac); }
+
+/* links, button, messages */
+.auth-row { text-align: right; }
+
+.auth-link {
+  font-weight: 600;
+  color: var(--purple);
+}
+
+.auth-link:hover { text-decoration: underline; }
+
+.auth-form .btn {
+  width: 100%;
+  padding: 14px;
+}
+
+.auth-notice {
+  margin-top: 18px;
+  padding: 10px 16px;
+  font-weight: 600;
+  color: var(--purple-deep);
+  background: #fff;
+  border-radius: 12px;
+}
+
+.auth-notice:empty { display: none; }
+
+.auth-switch {
+  margin-top: 22px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* small screens */
+@media (max-width: 560px) {
+  .field-row { grid-template-columns: 1fr; }
+  .auth-card { padding: 30px 22px; }
+}
+
+/* ============ 18. HELLO CHARACTER (box ke RIGHT se) ============ */
+.hello-actor {
+  position: absolute;
+  left: calc(100% - 18px);      /* thoda sa box ke peeche dabta hai */
+  bottom: -6px;
+  height: var(--h, 100%);       /* box ki height ka kitna hissa */
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  animation: helloSlide 7s ease-in-out 0.6s 1 forwards;
+}
+
+.hello-char { display: block; height: 100%; width: auto; }
+
+.hello-bubble {
+  position: absolute;
+  left: 26px;
+  bottom: 100%;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(63, 43, 115, 0.18);
+  opacity: 0;
+  animation: helloBubble 7s ease-in-out 0.6s 1 forwards;
+}
+
+.hello-bubble::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+/* box ke peeche se nikalta hai, hello bolta hai, wapas chala jata hai */
+@keyframes helloSlide {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  12%  { transform: translateX(0);     opacity: 1; }
+  86%  { transform: translateX(0);     opacity: 1; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes helloBubble {
+  0%, 18%   { opacity: 0; transform: translateY(6px) scale(0.9); }
+  26%, 78%  { opacity: 1; transform: none; }
+  88%, 100% { opacity: 0; transform: translateY(6px) scale(0.9); }
+}
+
+@media (max-width: 1100px) { .hello-actor { display: none; } }
+@media (prefers-reduced-motion: reduce) { .hello-actor { display: none; } }

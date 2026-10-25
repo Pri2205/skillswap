@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up | SkillSwap</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+</head>
+<body class="auth-page">
+
+  <!-- TOP BAR: logo and back to home -->
+  <header class="auth-bar">
+    <a href="/" class="auth-brand">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="SkillSwap logo">
+      <span>SkillSwap</span>
+    </a>
+    <a href="/" class="back-home">← Back to home</a>
+  </header>
+
+  <!-- LILAC BOX WITH THE FORM -->
+  <main class="auth-stage">
+    <div class="hello-wrap wide" style="--h:40%">
+
+      <!-- hello character: comes out from behind the box (right side) -->
+      <div class="hello-actor">
+        <div class="hello-bubble">Hi! Let's get started.</div>
+        <img class="hello-char" src="{{ url_for('static', filename='signup.gif') }}" alt="">
+      </div>
+
+      <div class="auth-card">
+        <h2>Create your account</h2>
+        <p class="section-sub">Start swapping skills with other students.</p>
+        <div class="auth-bonus">
+          <span class="coin">SP</span>
+          Get 500 free SkillPoints when you join
+        </div>
+
+        <form class="auth-form" id="registerForm" action="/register" method="post" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" autocomplete="name">
+            <span class="field-error"></span>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email">
+              <span class="field-error"></span>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" name="phone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" autocomplete="tel">
+              <span class="field-error"></span>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="password">Password</label>
+              <div class="pw-wrap">
+                <input type="password" id="password" name="password" autocomplete="new-password">
+                <button type="button" class="pw-toggle" data-target="password">Show</button>
+              </div>
+              <span class="field-error"></span>
+            </div>
+
+            <div class="field">
+              <label for="confirm">Confirm password</label>
+              <div class="pw-wrap">
+                <input type="password" id="confirm" name="confirm" autocomplete="new-password">
+                <button type="button" class="pw-toggle" data-target="confirm">Show</button>
+              </div>
+              <span class="field-error"></span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="referral">Referral code (optional)</label>
+            <input type="text" id="referral" name="referral">
+            <span class="field-error"></span>
+          </div>
+
+          <button type="submit" class="btn">Sign up</button>
+        </form>
+
+        <p class="auth-notice" id="authMsg" role="status">{{ notice or "" }}</p>
+        <p class="auth-switch">Already have an account? <a href="/login" class="auth-link">Sign in</a></p>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='auth.js') }}"></script>
+</body>
+</html>

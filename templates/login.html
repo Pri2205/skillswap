@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in | SkillSwap</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+</head>
+<body class="auth-page">
+
+  <!-- TOP BAR: logo and back to home -->
+  <header class="auth-bar">
+    <a href="/" class="auth-brand">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="SkillSwap logo">
+      <span>SkillSwap</span>
+    </a>
+    <a href="/" class="back-home">← Back to home</a>
+  </header>
+
+  <!-- LILAC BOX WITH THE FORM -->
+  <main class="auth-stage">
+    <div class="hello-wrap" style="--h:60%">
+
+      <!-- hello character: comes out from behind the box (right side) -->
+      <div class="hello-actor">
+        <div class="hello-bubble">Welcome back!</div>
+        <img class="hello-char" src="{{ url_for('static', filename='login.gif') }}" alt="">
+      </div>
+
+      <div class="auth-card">
+        <h2>Sign in</h2>
+
+        <form class="auth-form" action="/login" method="post">
+          <div class="field">
+            <label for="identifier">Email or phone number</label>
+            <input type="text" id="identifier" name="identifier" autocomplete="username" required>
+            <span class="field-error"></span>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="pw-wrap">
+              <input type="password" id="password" name="password" autocomplete="current-password" required>
+              <button type="button" class="pw-toggle" data-target="password">Show</button>
+            </div>
+            <span class="field-error"></span>
+          </div>
+
+          <div class="auth-row">
+            <a href="#" class="auth-link" id="forgotLink">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn">Sign in</button>
+        </form>
+
+        <p class="auth-notice" id="authMsg" role="status">{{ notice or "" }}</p>
+        <p class="auth-switch">New here? <a href="/register" class="auth-link">Create an account</a></p>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='auth.js') }}"></script>
+</body>
+</html>

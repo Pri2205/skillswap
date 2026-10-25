@@ -1,0 +1,278 @@
+/* =====================================================
+   auth.css  -  Sign in / Sign up pages (+ hello character)
+   Ye file style.css ke BAAD load hoti hai.
+   ===================================================== */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 10% 90%, rgba(178, 116, 193, 0.38) 0, transparent 40%),
+    radial-gradient(circle at 90% 12%, rgba(92, 195, 217, 0.28) 0, transparent 38%),
+    linear-gradient(135deg, #3F2B73 0%, #583D96 55%, #1E7FB8 115%);
+  background-attachment: fixed;
+}
+
+/* ---------- top bar ---------- */
+.auth-page .auth-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 22px 5%;
+}
+
+.auth-page .auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.auth-page .auth-brand img {
+  height: 38px;
+  width: auto;
+  padding: 4px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.auth-page .back-home {
+  padding: 8px 18px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  transition: background 0.2s;
+}
+.auth-page .back-home:hover { background: rgba(255, 255, 255, 0.14); }
+
+/* ---------- centre stage ---------- */
+.auth-page .auth-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 5% 48px;
+}
+
+/* wrapper decides the box width */
+.auth-page .hello-wrap {
+  position: relative;
+  width: min(440px, 100%);
+  flex: 0 0 auto;
+}
+.auth-page .hello-wrap.wide { width: min(500px, 100%); }
+
+/* ---------- lilac box ---------- */
+.auth-page .auth-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0;
+  padding: 30px;
+  background: #E7DBF7;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(20, 10, 60, 0.35);
+}
+
+.auth-page .auth-card h2 {
+  margin: 0;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 800;
+  color: #583D96;
+}
+
+.auth-page .section-sub {
+  margin: 6px 0 0;
+  color: #5A4B7A;
+}
+
+.auth-page .auth-bonus {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 5px 14px 5px 5px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #3F2B73;
+  background: #fff;
+  border-radius: 999px;
+}
+
+/* ---------- form ---------- */
+.auth-page .auth-form {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.auth-page .field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.auth-page .field label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.auth-page .field input {
+  width: 100%;
+  padding: 10px 14px;
+  font: inherit;
+  color: #24173F;
+  background: #fff;
+  border: 1px solid #CDB5EE;
+  border-radius: 12px;
+}
+
+.auth-page .field input:focus {
+  outline: none;
+  border-color: #583D96;
+  box-shadow: 0 0 0 3px #D8BEF5;
+}
+
+.auth-page .field.invalid input { border-color: #B02A4E; }
+
+.auth-page .field-error {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: #B02A4E;
+}
+.auth-page .field-error:empty { display: none; }
+
+.auth-page .pw-wrap { position: relative; }
+.auth-page .pw-wrap input { padding-right: 70px; }
+
+.auth-page .pw-toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #583D96;
+  background: none;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.auth-page .pw-toggle:hover { background: #E7DBF7; }
+
+.auth-page .auth-row { text-align: right; }
+
+.auth-page .auth-link {
+  font-weight: 600;
+  color: #583D96;
+  text-decoration: none;
+}
+.auth-page .auth-link:hover { text-decoration: underline; }
+
+.auth-page .auth-form .btn {
+  width: 100%;
+  padding: 13px;
+}
+
+.auth-page .auth-notice {
+  margin: 14px 0 0;
+  padding: 10px 16px;
+  font-weight: 600;
+  color: #3F2B73;
+  background: #fff;
+  border-radius: 12px;
+}
+.auth-page .auth-notice:empty { display: none; }
+
+.auth-page .auth-switch {
+  margin: 16px 0 0;
+  text-align: center;
+  color: #5A4B7A;
+}
+
+/* ---------- hello character (box ke RIGHT se) ---------- */
+.auth-page .hello-actor {
+  position: absolute;
+  left: calc(100% + 8px);
+  bottom: -6px;
+  height: var(--h, 100%);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  animation: helloSlide 7s ease-in-out 0.6s 1 forwards;
+}
+
+.auth-page .hello-char {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: none;
+}
+
+.auth-page .hello-bubble {
+  position: absolute;
+  left: 14px;
+  bottom: 100%;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #24173F;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(63, 43, 115, 0.18);
+  opacity: 0;
+  animation: helloBubble 7s ease-in-out 0.6s 1 forwards;
+}
+
+.auth-page .hello-bubble::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+@keyframes helloSlide {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  12%  { transform: translateX(0);     opacity: 1; }
+  86%  { transform: translateX(0);     opacity: 1; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes helloBubble {
+  0%, 18%   { opacity: 0; transform: translateY(6px) scale(0.9); }
+  26%, 78%  { opacity: 1; transform: none; }
+  88%, 100% { opacity: 0; transform: translateY(6px) scale(0.9); }
+}
+
+/* ---------- small screens ---------- */
+@media (max-width: 1100px) {
+  .auth-page .hello-actor { display: none; }
+}
+@media (max-width: 560px) {
+  .auth-page .field-row { grid-template-columns: 1fr; }
+  .auth-page .auth-card { padding: 26px 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .auth-page .hello-actor { display: none; }
+}

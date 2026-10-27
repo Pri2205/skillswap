@@ -42,22 +42,24 @@
         </div>
 
         <form class="auth-form" id="registerForm" action="/register" method="post" novalidate>
+          <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
           <div class="field">
             <label for="name">Full name</label>
-            <input type="text" id="name" name="name" autocomplete="name">
+            <input type="text" id="name" name="name" value="{{ form.get('name', '') }}" autocomplete="name">
             <span class="field-error"></span>
           </div>
 
           <div class="field-row">
             <div class="field">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" autocomplete="email">
+              <input type="email" id="email" name="email" value="{{ form.get('email', '') }}" autocomplete="email">
               <span class="field-error"></span>
             </div>
 
             <div class="field">
               <label for="phone">Phone number</label>
-              <input type="tel" id="phone" name="phone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" autocomplete="tel">
+              <input type="tel" id="phone" name="phone" value="{{ form.get('phone', '') }}" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" autocomplete="tel">
               <span class="field-error"></span>
             </div>
           </div>
@@ -84,7 +86,7 @@
 
           <div class="field">
             <label for="referral">Referral code (optional)</label>
-            <input type="text" id="referral" name="referral">
+            <input type="text" id="referral" name="referral" value="{{ form.get('referral', '') }}">
             <span class="field-error"></span>
           </div>
 
